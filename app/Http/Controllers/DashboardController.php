@@ -8,6 +8,32 @@ class DashboardController extends Controller
 {
     public function index(){
         // logica
-        return view('dashboard');
+        $users = [
+                [
+                    'name' => 'Juan',
+                    'age' => '32'
+                ],
+                [
+                    'name' => 'Mark',
+                    'age' => '21'
+                ],
+                [
+                    'name' => 'Tony',
+                    'age' => '55'
+                ],
+                [
+                    'name' => 'Vik',
+                    'age' => '18'
+                ],
+                [
+                    'name'=> 'Ana',
+                    'age' => '17'
+                ]
+            ];
+        //ritorno e passaggio dati alla vista
+        return view(
+            'dashboard',
+            ['users'=>$users]
+        );
     }
 }
