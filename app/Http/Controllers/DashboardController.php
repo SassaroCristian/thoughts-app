@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Thought;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -30,10 +31,19 @@ class DashboardController extends Controller
                     'age' => '17'
                 ]
             ];
+
+            // $thought = new Thought([
+            //     'content'=> 'test',
+            // ]);
+            // $thought->save();
+
         //ritorno e passaggio dati alla vista
         return view(
             'dashboard',
-            ['users'=>$users]
+            [
+                'users'=>$users,
+                'thoughts'=> Thought::orderBy('created_at','DESC')->get()
+                ]
         );
     }
 }
